@@ -11,13 +11,13 @@ class Account {
 
 public:
     void add() {
-        cout << "Enter your Name " << endl;
+        cout << "Enter your Name:- ";
         getline(cin,holderName);
-        cout << "Enter initial balance amount to deposit " << endl;
+        cout << "Enter initial balance amount to deposit:- ";
         cin >> balance;
         accountno = rand() % 10001;
-        cout << "Your Account No is = " << accountno << endl;
-        cout << "set PIN " << endl;
+        cout << "Your Account No is = "<<accountno<<endl;;
+        cout << "set PIN:- ";
         cin >> pin;
         cin.ignore();
     }
@@ -26,14 +26,14 @@ public:
         accountno = a1;
         holderName = n1;
         pin = p1;
-        cout << "Enter amount to withdraw " << endl;
+        cout << "Enter amount to withdraw:- ";
         cin >> withdraw;
         if (withdraw >= balance) {
             cout << "Insufficient Balance " << endl;
         } else {
             balance = balance - withdraw;
             cout<<string(60,'=')<<endl;
-            cout << "Amount Left = " << balance << endl;
+            cout << "Amount Left:- " << balance;
             cout<<string(60,'=')<<endl;
         }
     }
@@ -42,11 +42,11 @@ public:
         accountno = a2;
         holderName = n2;
         pin = p2;
-        cout << "Enter amount to deposit " << endl;
+        cout << "Enter amount to deposit:- ";
         cin >> deposit;
         balance = balance + deposit;
         cout<<string(60,'=')<<endl;
-        cout << "Amount Left = " << balance << endl;
+        cout << "Amount Left:- " << balance;
         cout<<string(60,'=')<<endl;
     }
 
@@ -76,6 +76,7 @@ int main() {
         cout << "4. Search / Display bank details " << endl;
         cout << "5. Statement/Reciept " << endl;
         cout << "6. Exit"<<endl;
+        cout<<"ENTER CHOICE:- ";
         cin >> choice;
         cin.ignore();
         if (choice == 1) {
@@ -85,12 +86,12 @@ int main() {
             flag = 0;
         } 
         else if (choice == 2) {
-            cout << "Enter Account Number " << endl;
+            cout << "Enter Account Number:- ";
             cin >> acno;
             cin.ignore();
-            cout << "Enter Account Holder Name " << endl;
+            cout << "Enter Account Holder Name:- ";
             getline(cin,acname);
-            cout << "Enter PIN " << endl;
+            cout << "Enter PIN:- ";
             cin >> pn;
             cin.ignore();
             for (int i = 0; i < bank.size(); i++) {
@@ -177,12 +178,12 @@ int main() {
 
         }
         else if (choice == 3) {
-            cout << "Enter Account Number " << endl;
+            cout << "Enter Account Number:- ";
             cin >> acno;
             cin.ignore();
-            cout << "Enter Account Holder Name " << endl;
+            cout << "Enter Account Holder Name:- ";
             getline(cin,acname);
-            cout << "Enter PIN " << endl;
+            cout << "Enter PIN:- ";
             cin >> pn;
             cin.ignore();
             for (int i = 0; i < bank.size(); i++) {
@@ -276,7 +277,7 @@ int main() {
             cin.ignore();
             if(choice2==1)
             {
-            cout << "Enter Account Number " << endl;
+            cout << "Enter Account Number:- ";
             cin >> acno;
             cin.ignore();
                 for(int j=0;j<bank.size();j++)
@@ -284,7 +285,7 @@ int main() {
                     if(bank[j].getAccountNo()==acno)
                     {
                         cout<<"Account Found"<<endl;
-                        cout << "Enter PIN " << endl;
+                        cout << "Enter PIN:- ";
                         cin >> pn;
                         cin.ignore();
                         if(pn==bank[j].getPin())
@@ -326,14 +327,14 @@ int main() {
             }
             if(choice2==2)
             {
-            cout << "Enter Account Holder Name " << endl;
+            cout << "Enter Account Holder Name:- ";
             getline(cin,acname);
                 for(int j=0;j<bank.size();j++)
                 {
                     if(bank[j].getHolderName()==acname)
                     {
                         cout<<"Holder Name Found"<<endl;
-                        cout << "Enter PIN " << endl;
+                        cout << "Enter PIN:- ";
                         cin >> pn;
                         cin.ignore();
                         if(pn==bank[j].getPin())
@@ -378,10 +379,10 @@ int main() {
         else if (choice==5)
         {
             ofstream out("sample.txt");
-            cout << "Enter Account Number " << endl;
+            cout << "Enter Account Number:- ";
             cin >> acno;
             cin.ignore();
-            cout << "Enter Account Holder Name " << endl;
+            cout << "Enter Account Holder Name:- ";
             getline(cin,acname);
             for(int k=0;k<bank.size();k++)
             {
@@ -390,7 +391,7 @@ int main() {
                     if(bank[k].getHolderName()==acname)
                     {
                         cout<<"Account Found"<<endl;
-                        cout<<"Enter PIN"<<endl;
+                        cout<<"Enter PIN:- ";
                         cin>>pn;
                         cin.ignore();
                         if(pn==bank[k].getPin())
@@ -409,6 +410,10 @@ int main() {
                         {
                             flag=7;
                         }
+                    }
+                    else
+                    {
+                        cout<<"Either Account Name Or Account Number Is Wrong"<<endl;
                     }
                 }
             }
